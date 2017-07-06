@@ -10,7 +10,8 @@ import {
   Input,
   Button,
   Toast,
-  Content
+  Content,
+  Body
 } from 'native-base';
 import { connect } from 'react-redux';
 
@@ -64,7 +65,7 @@ class LoginPage extends Component {
     const { email, password } = this.state;
     if (!email || !password) {
       Toast.show({
-        text: "E-mail/password cannot be empty!",
+        text: "E-mail or Password cannot be empty!",
         type: "danger",
         duration: 2500
       });
@@ -117,8 +118,10 @@ class LoginPage extends Component {
                 placeholder="Password"
               />
             </Item>
-            <Button full style={styles.button} onPress={() => this.login()}>
-              <Text>Login</Text>
+            <Button rounded style={styles.button} onPress={() => this.login()}>
+              <Body>
+                <Text style={{ color: "white" }}>Login</Text>
+              </Body>
             </Button>
           </Form>
         </Content>
@@ -142,13 +145,14 @@ const styles = {
     alignSelf: "center"
   },
   form: {
-    paddingRight: 45,
-    paddingLeft: 35,
-    top: -100
+    paddingRight: 50,
+    paddingLeft: 50,
+    top: -110
   },
   button: {
     marginTop: 25,
-    marginLeft: 15,
+    width: "80%",
+    alignSelf: "center",
     backgroundColor: '#65c4db'
   }
 };
